@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Text, CHAR, TIMESTAMP, Boolean, ForeignKey, func
+from sqlalchemy import Column, Integer, String, Text, CHAR, Boolean, ForeignKey, DateTime
+from datetime import datetime
 from sqlalchemy.orm import relationship
 from db import Base
 
@@ -10,8 +11,10 @@ class Users(Base):
     email = Column(String, unique=True, nullable=False)
     hashed_password = Column(String, nullable=False)
 
+    quiz_results = relationship("QuizResult", back_populates="user")
+
 class Questions(Base):
-    __tablename__ = "question"
+    __tablename__ = "questions"
 
     id = Column(Integer, primary_key=True, index=True)
     category = Column(String(50), nullable=False)
@@ -27,6 +30,23 @@ class Questions(Base):
     explanation = Column(Text, nullable=True)
 
     difficulty = Column(Integer, default=1)
-    created_at = Column(TIMESTAMP, server_default=func.now())
 
-    answers = relationship("UserAnswer", back_populates="question")
+class QuizResult(Base):
+    __tablename__ = "quiz_results"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    score = Column(Integer, nullable=False)
+    total_questions = Column(Integer, nullable=False)
+    date = Column(DateTime, default=datetime.utcnow())
+
+    user = relationship("Users", back_populates="quiz_results")
+
+class QuizQuestions(Base):
+    __tablename__ = "quiz_questions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    quiz_id = Column(Integer, ForeignKey("quiz_results.id"), nullable=False)
+    question_id = Column(Integer, ForeignKey("questions.id"), nullable=False)
+    user_answer = Column(CHAR(1), nullable=True)
+    is_correct = Column(Boolean, nullable=False)
