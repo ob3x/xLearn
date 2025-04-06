@@ -15,7 +15,7 @@ const Register = () => {
         setInfo("Zarejestrowano pomyślnie");
       })
       .catch(err => {
-        setError("Error")
+        setError("Konto już istnieje")
         setInfo("")
       });
   };
