@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
@@ -34,8 +35,11 @@ async def register_account(user : UserCreate, db : Session = Depends(get_db)):
 
         return {"Success" : "User created successfully"}
     
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Username or email already exists")
     except Exception as e:
-        return {"Error" : str(e)}
+        return {"Error": str(e)}
     
 @router.post("/token", response_model=Token)
 async def login_user(form_data : OAuth2PasswordRequestForm = Depends(), db : Session = Depends(get_db)):
