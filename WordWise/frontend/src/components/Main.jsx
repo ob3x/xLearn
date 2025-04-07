@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Main = () => {
+const Main = ({ isLoggedIn }) => {
   const [flipped, setFlipped] = useState(false)
+
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      navigate("/panel")
+    }
+  })
+  
 
   return (
     <main>
@@ -9,9 +21,9 @@ const Main = () => {
         <div className='flex justify-between items-center'>
           <div className='text-green-500'>
             <h1 className='text-green-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
-            <p className='my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos</p>
-            <a href="/login" className='tracking-wider font-bold'>
-                <button className='button-class second-button hover:second-button_hover'>Załóż konto</button>
+            <p className='my-20'>{!isLoggedIn ? "Załóż konto i zobacz jak twój angielski wystrzela w kosmos!" : "Kliknij przycisk poniżej i stwórz swój pierwszy zestaw fiszek!"}</p>
+            <a href={!isLoggedIn ? "/login" : "/panel/stworz"} className='tracking-wider font-bold'>
+                <button className='button-class second-button hover:second-button_hover'>{!isLoggedIn ? "Załóż konto" : "Stwórz"}</button>
             </a>
           </div>
           <div>

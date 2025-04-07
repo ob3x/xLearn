@@ -1,22 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
-const Register = () => {
-  const [name, setName] = useState("")
+const Register = ({ setIsLoggedIn }) => {
+  const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
-  const [pass, setPass] = useState("")
-  const [info, setInfo] = useState("")
+  const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      navigate("/panel")
+    }
+  })
 
   const registerUser = () => {
-    axios.post("http://127.0.0.1:8000/auth/register", { username: name, email: email, password: pass })
+    if (username.trim() == "" || email.trim() == "" || password.trim() == "") {
+      setError("Pola nie mogą być puste")
+      return
+    }
+
+    axios.post("http://127.0.0.1:8000/auth/register", { username: username, email: email, password: password })
       .then(res => {
-        setError("");
-        setInfo("Zarejestrowano pomyślnie");
+        axios.post("http://127.0.0.1:8000/auth/token", 
+          new URLSearchParams({
+            username : username,
+            password : password
+          }), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+          .then(res => {
+            if (res.data.access_token) {
+              localStorage.setItem("token", res.data.access_token)
+              setIsLoggedIn(true)
+              navigate("/")
+            }
+          })
+          .catch (err => {
+            setError("Coś poszło nie tak podczas rejestracji lub logowania")
+          })
       })
       .catch(err => {
         setError("Konto już istnieje")
-        setInfo("")
       });
   };
   
@@ -25,18 +51,17 @@ const Register = () => {
   return (
     <section className='my-80'>
       <div className='flex flex-col justify-center items-center'>
-        <h2 className='text-3xl uppercase font-bold'>Załóż konto</h2>
-        <p className='my-15 tracking-wider'>Załóż darmowe konto i twórz zestawy fiszek</p>
-        <form action="register" className='flex flex-col bg-green-500 px-20 py-40 rounded-2xl' onSubmit={e => {
+        <form action="register" className='flex flex-col p-40 rounded-2xl border-3 border-green-500' onSubmit={e => {
           e.preventDefault()
           registerUser()
         }}>
-          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Nazwa konta" className='my-20 px-30 py-10 rounded-xl bg-red-500'/>
-          <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Adres email" className='my-20 px-30 py-10 rounded-xl bg-red-500'/>
-          <input value={pass} onChange={(e) => setPass(e.target.value)} placeholder="Hasło" className='my-20 px-30 py-10 rounded-xl bg-red-500'/>
-          <button className='text-2xl my-15 bg-red-500 px-30 py-10 rounded-xl cursor-pointer'>Zarejestruj</button>
-          <p>{error && error}</p>
-          <p>{info && info}</p>
+          <h2 className='text-3xl uppercase font-bold text-green-600'>Załóż konto</h2>
+          <p className='my-15 tracking-wider text-green-500'>Załóż darmowe konto i twórz zestawy fiszek</p>
+          <input type="text" autoComplete="username" required value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nazwa użytkownika" className='my-20 px-30 py-15 rounded-xl bg-green-500'/>
+          <input type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Adres email" className='my-20 px-30 py-15 rounded-xl bg-green-500'/>
+          <input type="password" autoComplete="new-password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Hasło" className='my-20 px-30 py-15 rounded-xl bg-green-500'/>
+          <button type="submit" className='button-class second-button hover:second-button_hover mt-50'>Zarejestruj</button>
+          <p className='text-green-500 my-10'>{error && error}</p>
         </form>
       </div>
     </section>
