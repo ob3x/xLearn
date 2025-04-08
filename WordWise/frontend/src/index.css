@@ -6,6 +6,11 @@
   --color-green-400: #22AAA1;
   --color-green-500: #136F63;
   --color-green-600: #091f19;
+  --color-blue-200: #e2fdff;
+  --color-blue-300: #BFD7FF;
+  --color-blue-400: #9BB1FF;
+  --color-blue-500: #788BFF;
+  --color-blue-600: #5465FF;
   --color-zinc: #101010;
   --spacing: 1px;
 }
@@ -70,6 +75,17 @@ canvas {
 @utility button-class_hover {
   background-color: #136F63;
   color: white;
+}
+
+@utility popup-button {
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color .3s
+}
+
+@utility popup-button_hover {
+  background-color: #788BFF;
 }
 
 @utility perspective {

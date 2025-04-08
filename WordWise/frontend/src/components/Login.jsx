@@ -15,7 +15,7 @@ const Login = ({ setIsLoggedIn }) => {
     if (token) {
       navigate("/panel")
     }
-  })
+  }, [])
 
   const loginUser = () => {
     if (username.trim() == "" || password.trim() == "") {

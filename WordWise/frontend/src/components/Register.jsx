@@ -15,7 +15,7 @@ const Register = ({ setIsLoggedIn }) => {
     if (token) {
       navigate("/panel")
     }
-  })
+  }, [])
 
   const registerUser = () => {
     if (username.trim() == "" || email.trim() == "" || password.trim() == "") {

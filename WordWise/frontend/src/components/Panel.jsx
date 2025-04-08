@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 
-
 const Panel = () => {
     const navigate = useNavigate()
 
@@ -22,10 +21,21 @@ const Panel = () => {
         localStorage.removeItem("token")
         navigate("/login")
     })
-  })
+  }, [])
 
   return (
-    <div className='bg-gray-700'>Panel</div>
+    <section className='bg-blue-500'>
+      <div className='screen-max-width'>
+        <h1>Fiszki angielski</h1>
+        <p>Wybierz to co chcesz dzisiaj porobić</p>
+        <div>
+          <div><p>Fiszki</p></div>
+          <div><p>Ucz się</p></div>
+          <div><p>Test</p></div>
+        </div>
+
+      </div>
+    </section>
   )
 }
 

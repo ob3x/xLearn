@@ -12,7 +12,7 @@ const Main = ({ isLoggedIn }) => {
     if (token) {
       navigate("/panel")
     }
-  })
+  }, [])
   
 
   return (
