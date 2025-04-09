@@ -1,29 +1,17 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 
-const Main = ({ isLoggedIn }) => {
+const Main = () => {
   const [flipped, setFlipped] = useState(false)
-
-  const navigate = useNavigate()
-  
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (token) {
-      navigate("/panel")
-    }
-  }, [])
-  
 
   return (
     <main>
       <section className='screen-max-width py-100'>
         <div className='flex justify-between items-center'>
-          <div className='text-green-500'>
-            <h1 className='text-green-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
-            <p className='my-20'>{!isLoggedIn ? "Załóż konto i zobacz jak twój angielski wystrzela w kosmos!" : "Kliknij przycisk poniżej i stwórz swój pierwszy zestaw fiszek!"}</p>
-            <a href={!isLoggedIn ? "/login" : "/panel/stworz"} className='tracking-wider font-bold'>
-                <button className='button-class second-button hover:second-button_hover'>{!isLoggedIn ? "Załóż konto" : "Stwórz"}</button>
+          <div className='text-blue-500'>
+            <h1 className='text-blue-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
+            <p className='my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos!</p>
+            <a href="/login" className='tracking-wider font-bold'>
+                <button className='button-class second-button hover:second-button_hover'>Załóż konto</button>
             </a>
           </div>
           <div>
@@ -33,11 +21,11 @@ const Main = ({ isLoggedIn }) => {
               onClick={() => setFlipped(!flipped)}
             >
               <div className={`transition-transform duration-500 transform-style preserve-3d w-full h-full ${flipped ? 'rotate-y-180' : ''}`}>
-                <div className="absolute w-full h-full shadow-2xl bg-gradient-to-b from-green-400 to-green-500 text-white rounded-xl flex items-center justify-center backface-hidden">
+                <div className="absolute w-full h-full shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 text-white rounded-xl flex items-center justify-center backface-hidden">
                   <p className="text-center text-2xl font-semibold">Rocket</p>
                 </div>
 
-                <div className="absolute w-full h-full shadow-2xl bg-gradient-to-b from-green-400 to-green-500 text-white rounded-xl flex items-center justify-center rotate-y-180 backface-hidden">
+                <div className="absolute w-full h-full shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 text-white rounded-xl flex items-center justify-center rotate-y-180 backface-hidden">
                   <p className="text-center text-2xl font-semibold">Rakieta</p>
                 </div>
               </div>
@@ -51,7 +39,7 @@ const Main = ({ isLoggedIn }) => {
           </div>
         </div>
       </section>
-      <section className='bg-green-600'>
+      <section className='bg-blue-600'>
         <div>elo</div>
       </section>
     </main>

@@ -3,19 +3,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (token) {
-      navigate("/panel")
-    }
-  }, [])
 
   const loginUser = () => {
     if (username.trim() == "" || password.trim() == "") {
@@ -31,8 +24,7 @@ const Login = ({ setIsLoggedIn }) => {
     .then(res => {
         if (res.data.access_token) {
           localStorage.setItem("token", res.data.access_token)
-          setIsLoggedIn(true)
-          navigate("/panel  ")
+          navigate("/panel")
         }
       })
       .catch(err => {
@@ -51,12 +43,12 @@ const Login = ({ setIsLoggedIn }) => {
   return (
     <section className='my-80'>
       <div className='flex flex-col justify-center items-center'>
-        <form action="login" className='flex flex-col p-40 rounded-2xl border-3 border-green-500' onSubmit={e => {
+        <form action="login" className='flex flex-col p-40 rounded-2xl border-3 border-blue-600' onSubmit={e => {
           e.preventDefault()
           loginUser()
         }}>
-          <h2 className='text-3xl uppercase font-bold text-green-600'>Zaloguj się</h2>
-          <p className='my-15 tracking-wider text-green-500'>Zaloguj się i korzystaj z wszystkich funkcji</p>
+          <h2 className='text-3xl uppercase font-bold text-blue-600'>Zaloguj się</h2>
+          <p className='my-15 tracking-wider text-blue-500'>Zaloguj się i korzystaj z wszystkich funkcji</p>
           <input type="text"
             name="username"
             value={username}
@@ -64,7 +56,7 @@ const Login = ({ setIsLoggedIn }) => {
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Nazwa użytkownika"
             required
-            className="my-20 px-30 py-15 rounded-xl bg-green-500"/>
+            className="my-20 px-30 py-15 rounded-xl bg-blue-500"/>
           <input type="password" 
           value={password}
           autoComplete='current-password'
@@ -72,9 +64,9 @@ const Login = ({ setIsLoggedIn }) => {
           placeholder="Hasło"
           name="password"
           required
-          className='my-20 px-30 py-15 rounded-xl bg-green-500'/>
+          className='my-20 px-30 py-15 rounded-xl bg-blue-500'/>
           <button type="submit" className='button-class second-button hover:second-button_hover mt-50'>Zaloguj</button>
-          <p className='text-green-500 my-10'>{error && error}</p>
+          <p className='text-blue-500 my-10'>{error && error}</p>
         </form>
       </div>
     </section>

@@ -10,6 +10,7 @@
   --color-blue-300: #BFD7FF;
   --color-blue-400: #9BB1FF;
   --color-blue-500: #788BFF;
+  --color-blue-shadow: #5465ffaf;
   --color-blue-600: #5465FF;
   --color-zinc: #101010;
   --spacing: 1px;
@@ -29,6 +30,10 @@
         font-family: "Poppins", sans-serif;
         color: #333;
     }
+}
+
+input:focus {
+  outline: #5465FF;
 }
 
 body {
@@ -56,24 +61,24 @@ canvas {
   text-transform: uppercase;
   padding: 10px 25px;
   border-radius: 10px;
-  color: #136F63;
-  border: 3px solid #136F63; 
+  color: #5465FF;
+  border: 3px solid #5465FF; 
   cursor: pointer;
   transition: 0.3s;
 }
 
 @utility second-button {
-  background-color: #136F63;
+  background-color: #5465FF;
   color: white;
 }
 
 @utility second-button_hover {
   background-color: white;
-  color: #136F63;
+  color: #5465FF;
 }
 
 @utility button-class_hover {
-  background-color: #136F63;
+  background-color: #5465FF;
   color: white;
 }
 
