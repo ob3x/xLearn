@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 
-const Register = () => {
+const Register = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -26,6 +26,7 @@ const Register = () => {
           .then(res => {
             if (res.data.access_token) {
               localStorage.setItem("token", res.data.access_token)
+              setIsAuthenticated(true)
               navigate("/panel")
             }
           })

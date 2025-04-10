@@ -3,7 +3,7 @@ import { logoWhiteImg, plusImg, pfpImg } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Nav = () => {
+const Nav = ({ setIsAuthenticated }) => {
   const [popupStatus, setPopupStatus] = useState(false)
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
@@ -27,6 +27,7 @@ const Nav = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token")
+    setIsAuthenticated(false)
     navigate("/login")
   }
   

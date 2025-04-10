@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
   const [flipped, setFlipped] = useState(false)
@@ -10,9 +11,9 @@ const Main = () => {
           <div className='text-blue-500'>
             <h1 className='text-blue-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
             <p className='my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos!</p>
-            <a href="/login" className='tracking-wider font-bold'>
+            <Link to="/register" className="tracking-wider font-bold">
                 <button className='button-class second-button hover:second-button_hover'>Załóż konto</button>
-            </a>
+            </Link>
           </div>
           <div>
           <div className="flex items-center justify-center">

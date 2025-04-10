@@ -3,7 +3,7 @@ import Nav from '../elements/Nav'
 
 const PublicLayout = () => (
   <>
-    <Nav />
+    <Nav/>
     <main>
       <Outlet />
     </main>

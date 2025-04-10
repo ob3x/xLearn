@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
@@ -24,6 +24,7 @@ const Login = () => {
     .then(res => {
         if (res.data.access_token) {
           localStorage.setItem("token", res.data.access_token)
+          setIsAuthenticated(true)
           navigate("/panel")
         }
       })
