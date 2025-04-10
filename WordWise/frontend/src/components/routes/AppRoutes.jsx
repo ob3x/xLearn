@@ -18,7 +18,7 @@ const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
     <Routes>
     <Route element={<PublicRoute isAuthenticated={isAuthenticated} />}>
       <Route element={<PublicLayout/>}>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main />}/>
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated}/>} />
       </Route>

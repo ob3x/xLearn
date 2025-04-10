@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { learnImg, leftArrowImg, rightArrowImg } from '../../utils'
+import { flashCardsTest } from '../../constants'
 
 const Main = () => {
   const [flipped, setFlipped] = useState(false)
+  const [flippedSecond, setFlippedSecond] = useState(false)
+  const [flashCardNumber, setFlashCardNumber] = useState(0)
 
   return (
     <main>
-      <section className='screen-max-width py-100'>
+      <section className='screen-max-width pt-200 pb-100'>
         <div className='flex justify-between items-center'>
           <div className='text-blue-500'>
             <h1 className='text-blue-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
@@ -41,7 +45,59 @@ const Main = () => {
         </div>
       </section>
       <section className='bg-blue-600'>
-        <div>elo</div>
+        <div className='screen-max-width flex justify-between items-center py-100'>
+        <img src={learnImg} width={200}/>
+        <div>
+          <h2 className='font-bold text-3xl mb-10'>Przetestuj pełne możliwości naszej aplikacji</h2>
+          <p>Żeby stworzyć zestaw fiszek przejdź do zakładki załóż konto i zacznij już teraz!</p>
+        </div>
+        </div>
+      </section>
+      <section>
+        <div className='screen-max-width py-100'>
+          <h2 className='text-blue-600 font-bold text-3xl'>Przetestuj aplikację bez zakładania konta</h2>
+          <p className='text-blue-500 mt-20 mb-50'>Już teraz możesz wypróbowac działanie naszej aplikacji w praktyce, zacznij się uczyć na naszym testowym zestawie już teraz!</p>
+          <div>
+            <div>
+              {/* {flashCardsTest.map(element => (
+                element.visibility == true ?  */}
+                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-5xl rounded-2xl transition-transform duration-700 
+                  transform-style preserve-3d ${flippedSecond ? 'rotate-y-180' : ''}`}
+                  onClick={() => setFlippedSecond(!flippedSecond)}>
+
+                <div className='absolute w-full h-full backface-hidden flex items-center justify-center'>
+                    <p>{flashCardsTest[flashCardNumber].front}</p>
+                  </div>
+
+                  <div className='absolute w-full h-full backface-hidden rotate-y-180 flex items-center justify-center'>
+                    <p>{flashCardsTest[flashCardNumber].back}</p>
+                  </div>
+
+                </div>
+              {/* ))} */}
+              <div>
+                <div className='flex items-center justify-center mt-30'>
+
+                  <button className="cursor-pointer" onClick={() => {
+                    setFlashCardNumber(prev => Math.max(prev - 1, 0));
+                    setFlippedSecond(false)
+                  }}>
+                    <img src={leftArrowImg} alt="left-arrow" width={55} className='border-3 border-blue-500 p-5 rounded-xl hover:bg-shadow transition-colors duration-300'/>
+                  </button>
+
+                  <p className='text-blue-500 mx-30 text-3xl font-bold'>{flashCardNumber + 1}/{flashCardsTest.length}</p>
+
+                  <button className="cursor-pointer" onClick={() => {
+                    setFlashCardNumber(prev => Math.min(prev + 1, flashCardsTest.length - 1));
+                    setFlippedSecond(false)
+                  }}>
+                    <img src={rightArrowImg} alt='right-arrow' width={55} className='border-3 border-blue-500 p-5 rounded-xl hover:bg-shadow transition-colors duration-300'/>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   )

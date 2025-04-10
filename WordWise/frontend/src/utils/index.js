@@ -8,6 +8,8 @@ import profilePicture from "/images/pfp.jpg"
 import flashcard from "/images/flashcard.svg"
 import exam from "/images/exam.svg"
 import learn from "/images/learn.svg"
+import leftArrow from "/images/arrow-left.svg"
+import rightArrow from "/images/arrow-right.svg"
 
 
 export const logoImg = logo
@@ -20,3 +22,5 @@ export const pfpImg = profilePicture
 export const flashcardImg = flashcard
 export const examImg = exam
 export const learnImg = learn
+export const leftArrowImg = leftArrow
+export const rightArrowImg = rightArrow

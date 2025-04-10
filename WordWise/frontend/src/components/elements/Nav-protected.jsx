@@ -42,7 +42,7 @@ const Nav = ({ setIsAuthenticated }) => {
 
             <div className='flex items-center gap-5 relative'>
 
-              <button className='bg-blue-500 rounded-xl p-5 cursor-pointer hover:bg-blue-600 transition .3s'>
+              <button className='bg-blue-500 rounded-xl p-5 cursor-pointer hover:bg-blue-600 transition-colors duration-300'>
                 <img width={30} src={plusImg} alt="plus-icon" />
               </button>
 

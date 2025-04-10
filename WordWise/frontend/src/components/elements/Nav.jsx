@@ -3,7 +3,7 @@ import { logoImg } from '../../utils';
 
 const Nav = () => {
   return (
-    <nav className="p-20 bg-white">
+    <nav className="fixed w-full p-20 bg-white z-10">
       <div className="flex justify-between screen-max-width items-center">
         <Link to="/" className="flex items-center">
           <span className="text-xl text-blue-600 tracking-wider font-bold">RocketCards</span>
