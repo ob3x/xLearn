@@ -35,13 +35,13 @@ const Nav = ({ setIsAuthenticated }) => {
     <nav className='py-20 bg-blue-600'>
         <div className='flex justify-between screen-max-width'>
 
-            <a href='/panel'>
+            <Link to="/panel"> 
               <img width={30} src={logoWhiteImg} alt="burger-icon" />
-            </a>
+            </Link>
 
 
             <div className='flex items-center gap-5 relative'>
-              <Link to="/flashcards">
+              <Link to="/decks-create">
                 <button className='bg-blue-500 rounded-xl p-5 cursor-pointer hover:bg-blue-600 transition-colors duration-300'>
                   <img width={30} src={plusImg} alt="plus-icon" />
                 </button> 

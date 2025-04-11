@@ -1,30 +1,24 @@
 import { panelBox } from "../../constants"
 import { useEffect, useState } from "react"
-import api from "../routes/AxiosConfig";
 import { plusImg } from "../../utils";
+import { getDecks } from "../config/DeckDevice";
+import { Link } from "react-router-dom";
 
 const Panel = () => {
   const [decks, setDecks] = useState([])
 
-
   useEffect(() => {
-    const token = localStorage.getItem("token");
-  
-    api.get("http://localhost:8000/decks/get-deck", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then(res => {
-      setDecks(res.data);
-      console.log(res.data);
+    getDecks()
+    .then(data => {
+      setDecks(data)
     })
     .catch(err => {
       console.log(err);
-    });
-  }, []);
+    })
+  }, [])
 
-  // PRZERZUCIC TEGO USEEFFECT ZEBY DZIALAL TEZ NA /DECKS
+
+
   return (
     <main>
       <section className='bg-blue-500 py-50'>
@@ -52,9 +46,11 @@ const Panel = () => {
                 <p>{deck.description}</p>
               </div>
             )) : (
-              <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-xl mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
-                <img src={plusImg} width={40}/>
-              </div> )
+              <Link to="/decks-create">
+                <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-xl mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+                  <img src={plusImg} width={40}/>
+                </div> 
+              </Link> )
             }
           </div>
         </div>

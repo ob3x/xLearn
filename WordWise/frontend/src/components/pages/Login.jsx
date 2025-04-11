@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState }  from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -56,7 +55,6 @@ const Login = ({ setIsAuthenticated }) => {
             autoComplete="username"
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Nazwa użytkownika"
-            required
             className="my-20 px-30 py-15 rounded-xl bg-blue-500"/>
           <input type="password" 
           value={password}
@@ -64,10 +62,9 @@ const Login = ({ setIsAuthenticated }) => {
           onChange={(e) => setPassword(e.target.value)} 
           placeholder="Hasło"
           name="password"
-          required
           className='my-20 px-30 py-15 rounded-xl bg-blue-500'/>
+          <p className='text-blue-500 my-10 font-bold'>{error && error}</p>
           <button type="submit" className='button-class border-blue-600 font-bold second-button_hover hover:second-button mt-50'>Zaloguj</button>
-          <p className='text-blue-500 my-10'>{error && error}</p>
         </form>
       </div>
     </section>

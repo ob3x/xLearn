@@ -12,7 +12,6 @@ api.interceptors.request.use(config => {
   return config;
 });
 
-// 🔥 Tu łapiemy 401 globalnie
 api.interceptors.response.use(
   res => res,
   err => {

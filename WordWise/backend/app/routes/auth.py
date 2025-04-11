@@ -48,7 +48,7 @@ async def login_user(form_data : OAuth2PasswordRequestForm = Depends(), db : Ses
     if not user:
         raise HTTPException(status_code=401, detail="Error, could not validate user")
     
-    token = CreateAccessToken(user.id, user.username, timedelta(minutes=20))
+    token = CreateAccessToken(user.id, user.username, timedelta(minutes=30))
 
     return {"access_token" : token, "token_type" : "Bearer"}
 
