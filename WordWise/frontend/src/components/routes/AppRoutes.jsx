@@ -10,10 +10,10 @@ import Main from '../pages/Main'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Panel from '../pages/Panel'
-// import PanelSettings from '../pages/PanelSettings'
+import Decks from '../pages/Decks'
 
 const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
-
+  
   return (
     <Routes>
     <Route element={<PublicRoute isAuthenticated={isAuthenticated} />}>
@@ -27,6 +27,7 @@ const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
     <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
       <Route element={<PanelLayout setIsAuthenticated={setIsAuthenticated} />}>
         <Route path="/panel" element={<Panel />} />
+        <Route path="/decks" element={<Decks />} />
       </Route>
     </Route>
   </Routes>

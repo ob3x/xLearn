@@ -16,7 +16,7 @@ const Main = () => {
             <h1 className='text-blue-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
             <p className='my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos!</p>
             <Link to="/register" className="tracking-wider font-bold">
-                <button className='button-class second-button hover:second-button_hover'>Załóż konto</button>
+                <button className='button-class second-button_hover border-3 border-blue-600 hover:second-button'>Załóż konto</button>
             </Link>
           </div>
           <div>

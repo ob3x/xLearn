@@ -48,8 +48,8 @@ const Login = ({ setIsAuthenticated }) => {
           e.preventDefault()
           loginUser()
         }}>
-          <h2 className='text-3xl uppercase font-bold text-blue-600'>Zaloguj się</h2>
-          <p className='my-15 tracking-wider text-blue-500'>Zaloguj się i korzystaj z wszystkich funkcji</p>
+          <h2 className='text-3xl uppercase font-bold text-blue-600 text-center'>Zaloguj się</h2>
+          <p className='my-15 tracking-wider text-blue-500 text-center'>Zaloguj się i korzystaj z wszystkich funkcji</p>
           <input type="text"
             name="username"
             value={username}
@@ -66,7 +66,7 @@ const Login = ({ setIsAuthenticated }) => {
           name="password"
           required
           className='my-20 px-30 py-15 rounded-xl bg-blue-500'/>
-          <button type="submit" className='button-class second-button hover:second-button_hover mt-50'>Zaloguj</button>
+          <button type="submit" className='button-class border-blue-600 font-bold second-button_hover hover:second-button mt-50'>Zaloguj</button>
           <p className='text-blue-500 my-10'>{error && error}</p>
         </form>
       </div>

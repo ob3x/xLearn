@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { logoWhiteImg, plusImg, pfpImg } from '../../utils'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Nav = ({ setIsAuthenticated }) => {
@@ -41,10 +41,11 @@ const Nav = ({ setIsAuthenticated }) => {
 
 
             <div className='flex items-center gap-5 relative'>
-
-              <button className='bg-blue-500 rounded-xl p-5 cursor-pointer hover:bg-blue-600 transition-colors duration-300'>
-                <img width={30} src={plusImg} alt="plus-icon" />
-              </button>
+              <Link to="/flashcards">
+                <button className='bg-blue-500 rounded-xl p-5 cursor-pointer hover:bg-blue-600 transition-colors duration-300'>
+                  <img width={30} src={plusImg} alt="plus-icon" />
+                </button> 
+              </Link>
 
               <button onClick={() => setPopupStatus(!popupStatus)}>
                 <img width={40} className="rounded-3xl ml-15 cursor-pointer" src={pfpImg} alt="profile-icon" />

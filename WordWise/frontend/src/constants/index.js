@@ -71,7 +71,7 @@ export const footerItems = [
 export const panelBox = [
   {
     text : "Fiszki",
-    link : "/flashcards",
+    link : "/decks",
     img : flashcardImg
   },
   {

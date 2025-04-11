@@ -48,12 +48,12 @@ const Register = ({ setIsAuthenticated }) => {
           e.preventDefault()
           registerUser()
         }}>
-          <h2 className='text-3xl uppercase font-bold text-blue-600'>Załóż konto</h2>
-          <p className='my-15 tracking-wider text-blue-500'>Załóż darmowe konto i twórz zestawy fiszek</p>
+          <h2 className='text-3xl uppercase font-bold text-blue-600 text-center'>Załóż konto</h2>
+          <p className='my-15 tracking-wider text-blue-500 text-center'>Załóż darmowe konto i twórz zestawy fiszek</p>
           <input type="text" autoComplete="username" required value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nazwa użytkownika" className='my-20 px-30 py-15 rounded-xl bg-blue-500'/>
           <input type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Adres email" className='my-20 px-30 py-15 rounded-xl bg-blue-500'/>
           <input type="password" autoComplete="new-password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Hasło" className='my-20 px-30 py-15 rounded-xl bg-blue-500'/>
-          <button type="submit" className='button-class second-button hover:second-button_hover mt-50'>Zarejestruj</button>
+          <button type="submit" className='button-class border-3 border-blue-600 font-bold second-button_hover hover:second-button mt-50'>Zarejestruj</button>
           <p className='text-blue-500 my-10'>{error && error}</p>
         </form>
       </div>

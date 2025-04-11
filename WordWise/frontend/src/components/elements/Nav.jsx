@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { logoImg } from '../../utils';
+import { logoWhiteImg } from '../../utils';
 
 const Nav = () => {
   return (
-    <nav className="fixed w-full p-20 bg-white z-10">
+    <nav className="fixed w-full p-20 bg-blue-600 z-10">
       <div className="flex justify-between screen-max-width items-center">
         <Link to="/" className="flex items-center">
-          <span className="text-xl text-blue-600 tracking-wider font-bold">RocketCards</span>
-          <img src={logoImg} alt="logo" width={30} className="mx-10" />
+          <span className="text-xl text-white tracking-wider font-bold">RocketCards</span>
+          <img src={logoWhiteImg} alt="logo" width={30} className="mx-10" />
         </Link>
         <div>
           <Link to="/login" className="tracking-wider font-bold mx-20">

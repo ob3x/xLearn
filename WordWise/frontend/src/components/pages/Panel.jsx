@@ -1,6 +1,7 @@
 import { panelBox } from "../../constants"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import api from "../routes/AxiosConfig";
+import { plusImg } from "../../utils";
 
 const Panel = () => {
   const [decks, setDecks] = useState([])
@@ -9,7 +10,7 @@ const Panel = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
   
-    axios.get("http://localhost:8000/decks/get-deck", {
+    api.get("http://localhost:8000/decks/get-deck", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -23,6 +24,7 @@ const Panel = () => {
     });
   }, []);
 
+  // PRZERZUCIC TEGO USEEFFECT ZEBY DZIALAL TEZ NA /DECKS
   return (
     <main>
       <section className='bg-blue-500 py-50'>
@@ -43,17 +45,20 @@ const Panel = () => {
         <div className="screen-max-width">
           <h2 className="font-bold text-3xl">Szybki dostęp</h2>
           <p className="py-10">Szybki dostęp do wszystkich twoich zestawów fiszek</p>
-          <div className="flex flex-wrap justify-between items-center mt-50">
-            {decks && decks.map(deck => (
-              <div key={deck.id} className="bg-blue-500 px-100 py-150 m-10 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+          <div className="flex flex-wrap items-center mt-50">
+            {decks.length > 0 ? decks.map(deck => (
+              <div key={deck.id} className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
                 <p className="font-bold text-2xl">{deck.name}</p>
                 <p>{deck.description}</p>
               </div>
-            ))}
+            )) : (
+              <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-xl mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+                <img src={plusImg} width={40}/>
+              </div> )
+            }
           </div>
         </div>
       </section>
-{/* GDY MIJA 20 MINUT STRONA NIE WYLOGOWYWUJE UZYTKOWNIKA */}
     </main>
   )
 }
