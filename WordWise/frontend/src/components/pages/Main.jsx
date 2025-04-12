@@ -10,8 +10,8 @@ const Main = () => {
 
   return (
     <main>
-      <section className='screen-max-width pt-200 pb-100'>
-        <div className='flex justify-between items-center'>
+      <section className='pt-200 pb-100 bg-gradient-to-b from-white to-gray-100'>
+        <div className='flex justify-between items-center screen-max-width'>
           <div className='text-blue-500'>
             <h1 className='text-blue-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
             <p className='my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos!</p>
@@ -53,7 +53,7 @@ const Main = () => {
         </div>
         </div>
       </section>
-      <section>
+      <section className='bg-gradient-to-b from-white to-gray-100'>
         <div className='screen-max-width py-100'>
           <h2 className='text-blue-600 font-bold text-3xl'>Przetestuj aplikację bez zakładania konta</h2>
           <p className='text-blue-500 mt-20 mb-50'>Już teraz możesz wypróbowac działanie naszej aplikacji w praktyce, zacznij się uczyć na naszym testowym zestawie już teraz!</p>

@@ -10,6 +10,10 @@ import exam from "/images/exam.svg"
 import learn from "/images/learn.svg"
 import leftArrow from "/images/arrow-left.svg"
 import rightArrow from "/images/arrow-right.svg"
+import DeleteWhite from "/images/DeleteWhite.svg"
+import EditWhite from "/images/EditWhite.svg"
+import LearnWhite from "/images/LearnWhite.svg"
+import close from "/images/close.svg"
 
 
 export const logoImg = logo
@@ -24,3 +28,7 @@ export const examImg = exam
 export const learnImg = learn
 export const leftArrowImg = leftArrow
 export const rightArrowImg = rightArrow
+export const DeleteWhiteImg = DeleteWhite
+export const EditWhiteImg = EditWhite
+export const LearnWhiteImg = LearnWhite
+export const closeImg = close

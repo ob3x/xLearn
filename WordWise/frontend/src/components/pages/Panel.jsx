@@ -41,10 +41,12 @@ const Panel = () => {
           <p className="py-10">Szybki dostęp do wszystkich twoich zestawów fiszek</p>
           <div className="flex flex-wrap items-center mt-50">
             {decks.length > 0 ? decks.map(deck => (
-              <div key={deck.id} className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
-                <p className="font-bold text-2xl">{deck.name}</p>
-                <p>{deck.description}</p>
-              </div>
+              <Link to={`/decks/${deck.id}`} key={deck.id}>
+                <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-450 mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+                  <p className="font-bold text-2xl">{deck.name}</p>
+                  <p>{deck.description}</p>
+                </div>
+              </Link>
             )) : (
               <Link to="/decks-create">
                 <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-xl mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">

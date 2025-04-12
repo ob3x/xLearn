@@ -38,12 +38,14 @@ const DecksCreate = () => {
                 name="title"
                 placeholder="Wpisz tytuł"
                 value={title}
+                maxLength={15}
                 onChange={(e) => setTitle(e.target.value)}
                 className="my-20 px-30 py-15 rounded-xl bg-blue-500"/>
 
           <input type="text"
                 name="title"
                 placeholder="Opis"
+                maxLength={27}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="my-20 px-30 py-15 rounded-xl bg-blue-500"/>

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from core.db import get_db
-from models.model import DeckDB
+from models.model import DeckDB, FlashcardDB
 from schemas.decks import DeckCreate, Deck
 from routes.auth import get_current_user
 
@@ -13,6 +13,15 @@ router = APIRouter(
 @router.get("/get-deck", response_model=list[Deck])
 def get_deck(db : Session = Depends(get_db), user : dict = Depends(get_current_user)):
     decks = db.query(DeckDB).filter(DeckDB.user_id == user.id).limit(30).all()
+
+    if not decks:
+        raise HTTPException(status_code=404, detail="Error, decks not found")
+
+    return decks
+
+@router.get("/get-deck/{deck_id}", response_model=list[Deck])
+def get_deck_by_id(deck_id : int, db : Session = Depends(get_db), user : dict = Depends(get_current_user)):
+    decks = db.query(DeckDB).filter(DeckDB.user_id == user.id, DeckDB.id == deck_id).limit(30).all()
 
     if not decks:
         raise HTTPException(status_code=404, detail="Error, decks not found")
@@ -50,6 +59,8 @@ def delete_deck(deck_id : int, db : Session = Depends(get_db), user : dict = Dep
 
     if not deck_to_delete:
         raise HTTPException(status_code=404, detail="Error, deck not found")
+    
+    db.query(FlashcardDB).filter(FlashcardDB.deck_id == deck_id).delete()
 
     db.delete(deck_to_delete)
     db.commit()

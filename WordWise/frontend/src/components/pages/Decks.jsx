@@ -26,6 +26,7 @@ const Decks = () => {
                         }
                     });
                     counts[deck.id] = res.data.length;
+
                 } catch (err) {
                     counts[deck.id] = 0;
                 }
@@ -56,21 +57,19 @@ const Decks = () => {
                 </div>
                 <div>
                     {decks.length > 0 ? decks.map((deck, index) => (
-                        <div key={index} className='bg-blue-600 my-30 p-20 text-white text-2xl rounded-xl hover:bg-blue-shadow transition-color duration-300 cursor-pointer'>
-                            <p className='text-xl'>Liczba fiszek : {flashcardCounts[deck.id] ?? '...' }</p>
-                            <p className='font-bold'>{deck.name}</p>
-                        </div>
+                        <Link to={`/decks/${deck.id}`} key={index}>
+                            <div className='bg-blue-600 my-30 p-20 text-white text-2xl rounded-xl hover:bg-blue-shadow transition-color duration-300 cursor-pointer'>
+                                <p className='text-xl'>Liczba fiszek : {flashcardCounts[deck.id] ?? '...' }</p>
+                                <p className='font-bold'>{deck.name}</p>
+                                <p className='text-xl'>{deck.description}</p>
+                            </div>
+                        </Link>
                     )) : <p className='font-bold text-2xl mt-30 text-blue-600'>Brak folderów</p>}
                 </div>
-            </div>
-            <div className="fixed top-1/2 left-1/2 h-500 w-500 p-50 transform -translate-x-1/2 -translate-y-1/2 p-5 bg-red-500 z-50">
-                <div>dasdsadsadas</div>
             </div>
         </section>
     );
 };
 
-// POPUP Z TUTORIAL NA GUZIK (GUZIK Z NAPISEM JAK KORZYSTAC ITP)
-// KLIKNIJ W FOLDER ZEBY MIEC OPCJE, NAUKA, DODAJ USUN EDYTUJ FISZKI ITP
 
 export default Decks;

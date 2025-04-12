@@ -12,6 +12,9 @@ import Register from '../pages/Register'
 import Panel from '../pages/Panel'
 import Decks from '../pages/Decks'
 import DecksCreate from '../pages/DecksCreate'
+import DecksElement from '../pages/DecksElement'
+import AddFlashCards from '../pages/AddFlashCards'
+import FlashCards from '../pages/FlashCards'
 
 const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
   
@@ -30,6 +33,9 @@ const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
         <Route path="/panel" element={<Panel />} />
         <Route path="/decks" element={<Decks />} />
         <Route path="/decks-create" element={<DecksCreate />} />
+        <Route path="/decks/:deckId" element={<DecksElement />} />
+        <Route path='/decks/flashcards/:deckId' element={<FlashCards />}/>
+        <Route path="/decks/add-flashcards/:deckId" element={<AddFlashCards />} />
       </Route>
     </Route>
   </Routes>
