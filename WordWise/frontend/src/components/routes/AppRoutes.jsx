@@ -15,6 +15,7 @@ import DecksCreate from '../pages/DecksCreate'
 import DecksElement from '../pages/DecksElement'
 import AddFlashCards from '../pages/AddFlashCards'
 import FlashCards from '../pages/FlashCards'
+import Settings from '../pages/Settings'
 
 const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
   
@@ -36,6 +37,7 @@ const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
         <Route path="/decks/:deckId" element={<DecksElement />} />
         <Route path='/decks/flashcards/:deckId' element={<FlashCards />}/>
         <Route path="/decks/add-flashcards/:deckId" element={<AddFlashCards />} />
+        <Route path='/panel/settings' element={<Settings />}/>
       </Route>
     </Route>
   </Routes>

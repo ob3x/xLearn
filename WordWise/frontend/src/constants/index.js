@@ -85,3 +85,18 @@ export const panelBox = [
     img : learnImg
   },
 ]
+
+export const navElements = [
+  {
+    title: "Ustawienia",
+    link: "/panel/settings"
+  },
+  {
+    title: "Polityka prywatności",
+    link: "/panel/privace-polity"
+  },
+  {
+    title: "Regulamin",
+    link: "/panel/rules"
+  },
+]

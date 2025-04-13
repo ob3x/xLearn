@@ -14,3 +14,11 @@ class User(UserBase):
     level : int
     created_at : datetime
     is_admin : bool
+
+class ChangePasswordBase(BaseModel):
+    current_password: str
+    password: str
+    second_password: str
+
+class ChangePasswordCreate(ChangePasswordBase):
+    pass

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { getDecks } from '../config/DeckDevice'
 import api from "../config/AxiosConfig"
+import { leftArrowImg } from '../../utils'
+
 
 const Decks = () => {
     const [decks, setDecks] = useState([]);
@@ -44,8 +46,12 @@ const Decks = () => {
             <div className='screen-max-width'>
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h1 className='font-bold text-3xl text-blue-600 mb-10'>Stwórz swój zestaw fiszek</h1>
-                        <p className='text-blue-500'>Stwórz folder z fiszkami i wróć do niego w każdej chwili</p>
+                        <h1 className='font-bold text-3xl text-blue-600'>Stwórz swój zestaw fiszek</h1>
+                        <p className='text-blue-500 my-10'>Stwórz folder z fiszkami i wróć do niego w każdej chwili</p>
+                        <Link to="/panel" className='flex items-center'>
+                            <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
+                            <img src={leftArrowImg} width={20} />
+                        </Link>
                     </div>
                     <Link to="/decks-create">
                         <button className='button-class second-button_hover px-90 py-20 font-bold border-3 text-2xl border-blue-600 hover:second-button'>Stwórz</button>

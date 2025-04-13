@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { closeImg, DeleteWhiteImg, EditWhiteImg, LearnWhiteImg } from '../../utils'
+import { closeImg, DeleteWhiteImg, EditWhiteImg, LearnWhiteImg, leftArrowImg } from '../../utils'
 import api from "../config/AxiosConfig"
 import useDeck from "../config/DeckHook"
 
@@ -37,8 +37,12 @@ const DecksElement = () => {
       <div className='screen-max-width'>
         <h1 className='font-bold text-3xl text-blue-600'>Panel</h1>
         <p className='text-blue-500 py-10'>W panelu masz dostęp do wszystkich opcji zarządzania twoim zestawem, możesz go odpalić, edytować lub usunąc</p>
+        <Link to={`/decks`} className='flex items-center'>
+          <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
+          <img src={leftArrowImg} width={20} />
+        </Link>
         <div className='flex justify-between mt-50'>
-        <Link to={`/decks/flashcards/${deckId}`}>
+          <Link to={`/decks/flashcards/${deckId}`}>
               <button className='flex justify-between items-center button-class second-button_hover px-90 py-20 font-bold text-xl hover:bg-blue-shadow'>
                 <img src={LearnWhiteImg} className="mr-10" width={35} alt="start"/>
                 <p>Zacznij naukę</p>

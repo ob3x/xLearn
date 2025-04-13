@@ -59,8 +59,6 @@ const Main = () => {
           <p className='text-blue-500 mt-20 mb-50'>Już teraz możesz wypróbowac działanie naszej aplikacji w praktyce, zacznij się uczyć na naszym testowym zestawie już teraz!</p>
           <div>
             <div>
-              {/* {flashCardsTest.map(element => (
-                element.visibility == true ?  */}
                 <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-5xl rounded-2xl transition-transform duration-700 
                   transform-style preserve-3d ${flippedSecond ? 'rotate-y-180' : ''}`}
                   onClick={() => setFlippedSecond(!flippedSecond)}>
@@ -74,7 +72,6 @@ const Main = () => {
                   </div>
 
                 </div>
-              {/* ))} */}
               <div>
                 <div className='flex items-center justify-center mt-30'>
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { logoWhiteImg, plusImg, pfpImg } from '../../utils'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
+import { navElements } from '../../constants/index'
+
 
 const Nav = ({ setIsAuthenticated }) => {
   const [popupStatus, setPopupStatus] = useState(false)
@@ -63,8 +65,10 @@ const Nav = ({ setIsAuthenticated }) => {
                 </div>
                 <div className='bg-gray-400 h-1 w-full my-10'></div>
 
-                {["Ustawienia", "Polityka prywatności", "Regulamin"].map(element => (
-                  <button className='popup-button hover:popup-button_hover'>{element}</button>
+                {navElements.map((element, index) => (
+                  <Link to={element.link} key={index} className='w-full'>
+                    <button className='popup-button hover:popup-button_hover w-full'>{element.title}</button>
+                  </Link>
                 ))}
 
                 <div className='bg-gray-400 h-1 w-full my-10'></div>

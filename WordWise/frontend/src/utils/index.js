@@ -14,6 +14,7 @@ import DeleteWhite from "/images/DeleteWhite.svg"
 import EditWhite from "/images/EditWhite.svg"
 import LearnWhite from "/images/LearnWhite.svg"
 import close from "/images/close.svg"
+import trash from "/images/trash.svg"
 
 
 export const logoImg = logo
@@ -32,3 +33,4 @@ export const DeleteWhiteImg = DeleteWhite
 export const EditWhiteImg = EditWhite
 export const LearnWhiteImg = LearnWhite
 export const closeImg = close
+export const trashImg = trash

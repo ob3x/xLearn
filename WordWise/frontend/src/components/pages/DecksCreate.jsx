@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from "../config/AxiosConfig"
+import { Link } from 'react-router-dom'
+import { leftArrowImg } from "../../utils/index"
 
 const DecksCreate = () => {
   const [title, setTitle] = useState("")
@@ -29,7 +31,11 @@ const DecksCreate = () => {
   return (
     <section className='py-100'>
       <div className='screen-max-width'>
-        <h1 className='font-bold text-blue-600 text-3xl mb-50'>Stwórz nowy zestaw fiszek</h1>
+        <h1 className='font-bold text-blue-600 text-3xl'>Stwórz nowy zestaw fiszek</h1>
+        <Link to={`/decks`} className='flex items-center my-20'>
+          <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
+          <img src={leftArrowImg} width={20} />
+        </Link>
         <form className='flex flex-col' onSubmit={e => {
           e.preventDefault()
           createDeck()
