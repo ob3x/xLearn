@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import useDeck from "../config/DeckHook"
 import api from "../config/AxiosConfig"
 import { leftArrowImg, rightArrowImg } from '../../utils'
 
 const FlashCards = () => {
-  const navigate = useNavigate()
   const { deckId } = useParams()
   const { deck, loading } = useDeck(deckId)
   const [decks, setDecks] = useState([])
@@ -13,11 +12,7 @@ const FlashCards = () => {
   const [flashCardNumber, setFlashCardNumber] = useState(0)
   
   useEffect(() => {
-    const token = localStorage.getItem("token")
     api.get("http://127.0.0.1:8000/flash-cards/get-flashcard", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       params: {
         deck_id: deckId
       }
@@ -83,7 +78,7 @@ const FlashCards = () => {
           ) : 
             (
             <div>
-              <p className='text-blue-500 font-bold text-2xl my-20'>Musisz dodać fiszki żeby je tutaj zobaczyć!</p>
+              <p className='text-blue-600 font-bold text-2xl my-20'>Musisz dodać fiszki żeby je tutaj zobaczyć!</p>
               <Link to={`/decks/add-flashcards/${deckId}`}>
                 <button className='button-class second-button_hover px-90 py-20 font-bold text-xl border-3 border-blue-600 hover:second-button'>Dodaj</button>
               </Link>

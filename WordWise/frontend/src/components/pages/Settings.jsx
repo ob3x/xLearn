@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { leftArrowImg } from '../../utils'
 import api from "../config/AxiosConfig"
+import { closeImg } from '../../utils'
 
 const Settings = () => {
   const [currentPassword, setCurrentPassword] = useState("")
   const [newPassword, setNewPassword] = useState("")
   const [secondNewPassword, setSecondNewPassword] = useState("")
   const [error, setError] = useState("")
+  const [showPopup, setShowPopup] = useState(false)
 
   const navigate = useNavigate()
 
@@ -29,19 +31,12 @@ const Settings = () => {
       return
 
     }
-  
-      
-    const token = localStorage.getItem("token");
     
     api.post("http://localhost:8000/auth/change-password", 
       {
         current_password: currentPassword,
         password: newPassword,
         second_password: secondNewPassword
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
       }
     )
     .then(res => {
@@ -53,6 +48,17 @@ const Settings = () => {
     })
     .catch(err => {
       setError("Niepoprawne hasło")
+      console.log(err);
+    })
+  }
+
+  const deleteAccount = () => {
+    api.delete("http://localhost:8000/user/delete-currentuser")
+    .then(() => {
+      navigate("/login")
+      localStorage.removeItem("token")
+    })
+    .catch(err => {
       console.log(err);
     })
   }
@@ -103,7 +109,25 @@ const Settings = () => {
                 <p className='text-blue-500 my-10 font-bold'>{error && error}</p>
                 <button type="submit" className='button-class border-blue-600 font-bold second-button_hover hover:second-button mt-50'>Zmień hasło</button>
               </form>
+              <h2 className='font-bold text-blue-600 text-2xl mt-50'>Usuń konto</h2>
+              <button className='button-class border-blue-600 font-bold second-button_hover hover:second-button mt-30' onClick={() => setShowPopup(!showPopup)}>Usuń konto</button>
             </div>
+            {showPopup &&
+                  <>
+                    <div className='fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-blue-600 p-30 rounded-2xl z-10'>
+                      <div className='flex justify-between items-start'>
+                        <div className='mr-100'>
+                          <h3 className='font-bold text-2xl'>Usunąć konto?</h3>
+                          <p className='my-10'>Jesteś pewny, że chcesz usunąć swoje konto? Ten proces jest nieodwracalny.</p>
+                        </div>
+                        <img src={closeImg} alt='zamknij' width={25} className='cursor-pointer' onClick={() => setShowPopup(!showPopup)}/>
+                      </div>
+                    <div>
+                      <button className='button-class second-button px-90 py-20 mt-50 w-full font-bold text-xl hover:second-button_hover' onClick={deleteAccount}>Usuń</button>
+                    </div>
+                  </div>
+                  <div className='fixed top-0 left-0 w-full h-full bg-popup-shadow z-5'></div>
+              </>}
           </div>
       </section>
   )

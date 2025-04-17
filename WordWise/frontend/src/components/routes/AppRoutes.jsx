@@ -16,6 +16,9 @@ import DecksElement from '../pages/DecksElement'
 import AddFlashCards from '../pages/AddFlashCards'
 import FlashCards from '../pages/FlashCards'
 import Settings from '../pages/Settings'
+import Learn from '../pages/Learn'
+import Test from '../pages/Test'
+import StartTest from '../pages/StartTest'
 
 const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
   
@@ -38,6 +41,9 @@ const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
         <Route path='/decks/flashcards/:deckId' element={<FlashCards />}/>
         <Route path="/decks/add-flashcards/:deckId" element={<AddFlashCards />} />
         <Route path='/panel/settings' element={<Settings />}/>
+        <Route path="/learn" element={<Learn />}/>
+        <Route path="/tests" element={<Test />}/>
+        <Route path="/tests/:deckId" element={<StartTest />}/>
       </Route>
     </Route>
   </Routes>

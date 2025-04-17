@@ -10,13 +10,7 @@ const useDeck = (deckId) => {
   useEffect(() => {
     if (!deckId) return;
 
-    const token = localStorage.getItem("token");
-
-    api.get(`http://127.0.0.1:8000/decks/get-deck/${deckId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    api.get(`http://127.0.0.1:8000/decks/get-deck/${deckId}`)
     .then(res => {
       setDeck(res.data);
       setLoading(false);

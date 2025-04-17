@@ -23,7 +23,7 @@ const Panel = () => {
     <main>
       <section className='bg-blue-500 py-50'>
         <div className='screen-max-width'>
-          <h1 className='font-bold text-3xl'>Panel WordWise</h1>
+          <h1 className='font-bold text-3xl'>Panel RocketCards</h1>
           <p className='py-10'>Wybierz to co chcesz dzisiaj poćwiczyć</p>
           <div className='flex justify-between pt-40'>
             {panelBox.map((element, index) => (

@@ -31,6 +31,15 @@ def delete_user(user_id : int, admin_check: bool = Depends(is_admin), db : Sessi
 
     return {"Success" : f"User {user.username} deleted successfully"}
 
+@router.delete("/delete-currentuser")
+def delete_currentuser(user : dict = Depends(get_current_user), db : Session = Depends(get_db)):
+    user = db.query(UserDB).filter(UserDB.id == user.id).first()
+    
+    db.delete(user)
+    db.commit()
+
+    return None
+
 
 # @router.delete("/delete-user")
 # def delete_user_second(user: dict = Depends(get_current_user), db : Session = Depends(get_db)):

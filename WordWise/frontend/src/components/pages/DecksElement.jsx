@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { closeImg, DeleteWhiteImg, EditWhiteImg, LearnWhiteImg, leftArrowImg } from '../../utils'
 import api from "../config/AxiosConfig"
@@ -15,11 +15,7 @@ const DecksElement = () => {
   }
 
   const deleteItem = async () => {
-    const token = localStorage.getItem("token");
     await api.delete("http://127.0.0.1:8000/decks/delete-deck", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
       params: {
         deck_id : deckId
       }
