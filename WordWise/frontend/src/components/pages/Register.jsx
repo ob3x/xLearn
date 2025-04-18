@@ -44,7 +44,7 @@ const Register = ({ setIsAuthenticated }) => {
   return (
     <section className='pt-200 pb-100'>
       <div className='flex flex-col justify-center items-center'>
-        <form action="register" className='flex flex-col p-40 rounded-2xl border-3 border-blue-600' onSubmit={e => {
+        <form action="register" className='flex flex-col p-40 rounded-2xl border-3 sm:border-blue-600' onSubmit={e => {
           e.preventDefault()
           registerUser()
         }}>

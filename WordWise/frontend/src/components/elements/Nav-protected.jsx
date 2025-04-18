@@ -34,7 +34,7 @@ const Nav = ({ setIsAuthenticated }) => {
   }
   
   return (
-    <nav className='py-20 bg-blue-600'>
+    <nav className='p-20 bg-blue-600'>
         <div className='flex justify-between screen-max-width'>
 
             <Link to="/panel"> 

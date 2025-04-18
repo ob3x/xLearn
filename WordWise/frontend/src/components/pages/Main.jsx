@@ -10,17 +10,17 @@ const Main = () => {
 
   return (
     <main>
-      <section className='pt-200 pb-100 bg-gradient-to-b from-white to-gray-100'>
+      <section className='pt-200 px-20 pb-100 bg-gradient-to-b from-white to-gray-100'>
         <div className='flex justify-between items-center screen-max-width'>
           <div className='text-blue-500'>
-            <h1 className='text-blue-600 font-bold text-3xl'>Zacznij naukę z RocketCards</h1>
-            <p className='my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos!</p>
-            <Link to="/register" className="tracking-wider font-bold">
-                <button className='button-class second-button_hover border-3 border-blue-600 hover:second-button'>Załóż konto</button>
+            <h1 className='text-blue-600 font-bold text-xl sm:text-3xl'>Zacznij naukę z RocketCards</h1>
+            <p className='text-sm sm:text-base my-10 sm:my-20'>Załóż konto i zobacz jak twój angielski wystrzela w kosmos!</p>
+            <Link to="/register" className="tracking-wider font-bold text-xs md:text-base">
+                <button className='button-class second-button_hover border-3 border-blue-600 hover:second-button px-10 md:px-25'>Załóż konto</button>
             </Link>
           </div>
           <div>
-          <div className="flex items-center justify-center">
+          <div className="hidden md:flex items-center justify-center">
             <div
               className="relative w-250 h-400 perspective flex flex-col items-center"
               onClick={() => setFlipped(!flipped)}
@@ -44,30 +44,30 @@ const Main = () => {
           </div>
         </div>
       </section>
-      <section className='bg-blue-600'>
-        <div className='screen-max-width flex justify-between items-center py-100'>
-        <img src={learnImg} width={200}/>
-        <div>
-          <h2 className='font-bold text-3xl mb-10'>Przetestuj pełne możliwości naszej aplikacji</h2>
-          <p>Żeby stworzyć zestaw fiszek przejdź do zakładki załóż konto i zacznij już teraz!</p>
+      <section className='bg-blue-600 px-20'>
+        <div className='screen-max-width flex flex-col-reverse md:flex-row justify-center md:justify-between items-center py-100'>
+        <img src={learnImg} className='w-130 md:w-150 lg:w-200 mr-20'/>
+        <div className='text-center md:text-left'>
+          <h2 className='font-bold text-md md:text-2xl lg:text-3xl mb-10'>Przetestuj pełne możliwości naszej aplikacji</h2>
+          <p className='text-sm md:text-base'>Żeby stworzyć zestaw fiszek przejdź do zakładki załóż konto i zacznij już teraz!</p>
         </div>
         </div>
       </section>
-      <section className='bg-gradient-to-b from-white to-gray-100'>
+      <section className='bg-gradient-to-b from-white to-gray-100 px-20'>
         <div className='screen-max-width py-100'>
-          <h2 className='text-blue-600 font-bold text-3xl'>Przetestuj aplikację bez zakładania konta</h2>
-          <p className='text-blue-500 mt-20 mb-50'>Już teraz możesz wypróbowac działanie naszej aplikacji w praktyce, zacznij się uczyć na naszym testowym zestawie już teraz!</p>
+          <h2 className='text-blue-600 font-bold text-xl sm:text-3xl'>Przetestuj aplikację bez zakładania konta</h2>
+          <p className='text-blue-500 text-sm sm:text-base mt-10 mb-30 sm:mt-10 sm:mb-50'>Już teraz możesz wypróbowac działanie naszej aplikacji w praktyce, zacznij się uczyć na naszym testowym zestawie już teraz!</p>
           <div>
             <div>
-                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-5xl rounded-2xl transition-transform duration-700 
-                  transform-style preserve-3d ${flippedSecond ? 'rotate-y-180' : ''}`}
+                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-3xl sm:text-5xl rounded-2xl transition-transform duration-300 
+                  transform-style preserve-3d ${flippedSecond ? 'rotate-x-180' : ''}`}
                   onClick={() => setFlippedSecond(!flippedSecond)}>
 
                 <div className='absolute w-full h-full backface-hidden flex items-center justify-center'>
                     <p>{flashCardsTest[flashCardNumber].front}</p>
                   </div>
 
-                  <div className='absolute w-full h-full backface-hidden rotate-y-180 flex items-center justify-center'>
+                  <div className='absolute w-full h-full backface-hidden rotate-x-180 flex items-center justify-center'>
                     <p>{flashCardsTest[flashCardNumber].back}</p>
                   </div>
 

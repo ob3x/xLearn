@@ -22,12 +22,12 @@ const Panel = () => {
   return (
     <main>
       <section className='bg-blue-500 py-50'>
-        <div className='screen-max-width'>
+        <div className='screen-max-width text-center md:text-left px-20'>
           <h1 className='font-bold text-3xl'>Panel RocketCards</h1>
           <p className='py-10'>Wybierz to co chcesz dzisiaj poćwiczyć</p>
-          <div className='flex justify-between pt-40'>
+          <div className='flex flex-col lg:flex-row lg:justify-between mt-20'>
             {panelBox.map((element, index) => (
-              <a href={element.link} key={index} className='flex justify-center font-bold text-2xl items-center bg-blue-600 p-20 w-xs  rounded-xl transition-colors duration-150 hover:bg-blue-shadow'>
+              <a href={element.link} key={index} className='flex justify-center font-bold text-2xl items-center bg-blue-600 p-20 mt-20 w-full lg:w-xs rounded-xl transition-colors duration-150 hover:bg-blue-shadow'>
                 <img src={element.img} alt={element.text} width={40} className='mr-10'/>
                 <p>{element.text}</p>
               </a>
@@ -35,11 +35,11 @@ const Panel = () => {
           </div>
         </div>
       </section>
-      <section className="bg-blue-600 py-100">
+      <section className="bg-blue-600 py-100 text-center md:text-left px-20">
         <div className="screen-max-width">
           <h2 className="font-bold text-3xl">Szybki dostęp</h2>
           <p className="py-10">Szybki dostęp do wszystkich twoich zestawów fiszek</p>
-          <div className="flex flex-wrap items-center mt-50">
+          <div className="flex flex-col md:flex-row md:flex-wrap items-center mt-50">
             {decks.length > 0 ? decks.map(deck => (
               <Link to={`/decks/${deck.id}`} key={deck.id}>
                 <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-450 mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
