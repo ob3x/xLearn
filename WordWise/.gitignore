@@ -1,0 +1,36 @@
+# FRONTEND
+node_modules/
+dist/
+build/
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+.vscode/
+.DS_Store
+
+# BACKEND
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.db
+.env
+venv/
+.env.*
+instance/
+*.egg-info/
+
+# --- COMMON ---
+*.log
+*.swp
+*.swo
+*.tmp
+*.bak
+.idea/
+*.suo
+*.njsproj
+*.sln
+*.vscode/
+!.vscode/extensions.json

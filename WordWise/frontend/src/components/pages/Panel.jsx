@@ -21,8 +21,8 @@ const Panel = () => {
 
   return (
     <main>
-      <section className='bg-blue-500 py-50'>
-        <div className='screen-max-width text-center md:text-left px-20'>
+      <section className='bg-blue-500 py-50 px-20'>
+        <div className='screen-max-width text-center md:text-left'>
           <h1 className='font-bold text-3xl'>Panel RocketCards</h1>
           <p className='py-10'>Wybierz to co chcesz dzisiaj poćwiczyć</p>
           <div className='flex flex-col lg:flex-row lg:justify-between mt-20'>

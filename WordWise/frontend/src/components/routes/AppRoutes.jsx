@@ -19,7 +19,7 @@ import Settings from '../pages/Settings'
 import Learn from '../pages/Learn'
 import Test from '../pages/Test'
 import StartTest from '../pages/StartTest'
-import PrivacePolicy from '../pages/PrivacePolicy'
+import PrivatePolicy from '../pages/PrivatePolicy'
 import Rules from '../pages/Rules'
 import AboutUs from '../pages/AboutUs'
 
@@ -49,6 +49,13 @@ const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
         <Route path="/tests/:deckId" element={<StartTest />}/>
       </Route>
     </Route>
+
+    <Route element={isAuthenticated ? <PanelLayout setIsAuthenticated={setIsAuthenticated} /> : <PublicLayout />}>
+      <Route path="/private-policy" element={<PrivatePolicy />} />
+      <Route path="/rules" element={<Rules />} />
+      <Route path="/about-us" element={<AboutUs />} />
+    </Route>
+
   </Routes>
   )
 }

@@ -9,16 +9,20 @@ from core.db import get_db
 from models.model import UserDB
 from schemas.users import UserCreate, User, ChangePasswordCreate
 from schemas.token import Token
+from dotenv import load_dotenv
+import os
 
 router = APIRouter(
     prefix="/auth",
     tags=["auth"]
 )
 
+load_dotenv()
+
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 o2auth_bearer = OAuth2PasswordBearer(tokenUrl="auth/token")
 
-SECRET_KEY = "super_secret_key"
+SECRET_KEY = os.getenv("SUPER_SECRET_KEY")
 ALGORITHM = "HS256"
 
 @router.post("/register")
