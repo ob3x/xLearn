@@ -29,7 +29,7 @@ const DecksCreate = () => {
   }
 
   return (
-    <section className='py-100'>
+    <section className='py-100 px-20'>
       <div className='screen-max-width'>
         <h1 className='font-bold text-blue-600 text-3xl'>Stwórz nowy zestaw fiszek</h1>
         <Link to={`/decks`} className='flex items-center my-20'>

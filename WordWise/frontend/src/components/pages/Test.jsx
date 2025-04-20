@@ -34,12 +34,12 @@ const Test = () => {
 
 
     return (
-        <section className='py-100'>
+        <section className='py-100 px-20'>
             <div className='screen-max-width'>
 
                 <div>
-                    <h1 className='font-bold text-blue-600 text-3xl'>Przetestuj swoje umiejętności</h1>
-                    <p className='text-blue-500 my-10'>Sprawdź jak dobrze przyswoiłeś wiedzię z danego zestawu fiszek</p>
+                    <h1 className='font-bold text-blue-600 text-xl sm:text-3xl'>Przetestuj swoje umiejętności</h1>
+                    <p className='text-blue-500 my-10 text-sm sm:text-base'>Sprawdź jak dobrze przyswoiłeś wiedzię z danego zestawu fiszek</p>
                     <Link to="/panel" className='flex items-center'>
                         <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
                         <img src={leftArrowImg} width={20} />

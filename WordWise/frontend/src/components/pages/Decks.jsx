@@ -37,19 +37,19 @@ const Decks = () => {
     }, []);
 
     return (
-        <section className='py-100'>
+        <section className='py-100 px-20'>
             <div className='screen-max-width'>
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between'>
                     <div>
-                        <h1 className='font-bold text-3xl text-blue-600'>Stwórz swój zestaw fiszek</h1>
-                        <p className='text-blue-500 my-10'>Stwórz folder z fiszkami i wróć do niego w każdej chwili</p>
+                        <h1 className='font-bold text-xl sm:text-3xl text-blue-600'>Stwórz swój zestaw fiszek</h1>
+                        <p className='text-blue-500 my-10 text-sm sm:text-base'>Stwórz folder z fiszkami i wróć do niego w każdej chwili</p>
                         <Link to="/panel" className='flex items-center'>
                             <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
                             <img src={leftArrowImg} width={20} />
                         </Link>
                     </div>
                     <Link to="/decks-create">
-                        <button className='button-class second-button_hover px-90 py-20 font-bold border-3 text-2xl border-blue-600 hover:second-button'>Stwórz</button>
+                        <button className='button-class second-button_hover px-15 sm:px-30 md:px-90 py-20 font-bold border-3 text-xl md:text-2xl border-blue-600 ml-30 hover:second-button'>Stwórz</button>
                     </Link>
                 </div>
                 <div className='flex items-center mt-100'>

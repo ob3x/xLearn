@@ -19,6 +19,9 @@ import Settings from '../pages/Settings'
 import Learn from '../pages/Learn'
 import Test from '../pages/Test'
 import StartTest from '../pages/StartTest'
+import PrivacePolicy from '../pages/PrivacePolicy'
+import Rules from '../pages/Rules'
+import AboutUs from '../pages/AboutUs'
 
 const AppRoutes = ({ isAuthenticated, setIsAuthenticated }) => {
   

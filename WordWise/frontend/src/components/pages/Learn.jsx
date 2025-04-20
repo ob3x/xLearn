@@ -38,10 +38,10 @@ const Learn = () => {
     }, []);
 
     return (
-        <section className='py-100'>
+        <section className='py-100 px-20'>
             <div className='screen-max-width'>
-                <h1 className='font-bold text-blue-600 text-3xl'>Zacznij naukę</h1>
-                <p className='text-blue-500 my-10'>W zakładcę "Nauka" przerabiasz wszystkie twoje zestawy fiszek w jednym miejscu!</p>
+                <h1 className='font-bold text-blue-600 text-xl sm:text-3xl'>Zacznij naukę</h1>
+                <p className='text-sm sm:text-base text-blue-500 my-10'>W zakładcę "Nauka" przerabiasz wszystkie twoje zestawy fiszek w jednym miejscu!</p>
                 <Link to={`/panel`} className='flex items-center'>
                     <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
                     <img src={leftArrowImg} width={20} />
@@ -50,7 +50,7 @@ const Learn = () => {
                 {decks.length > 0 ? (
                           <div className='mt-50'>
                             <div>
-                                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-5xl rounded-2xl transition-transform duration-300 
+                                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-xl sm:text-5xl rounded-2xl transition-transform duration-300 
                                   transform-style preserve-3d ${flippedSecond ? 'rotate-x-180' : ''}`}
                                   onClick={() => setFlippedSecond(!flippedSecond)}>
                 

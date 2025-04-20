@@ -15,7 +15,7 @@ class UserDB(Base):
     is_admin = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    decks = relationship("DeckDB", back_populates="owner")
+    decks = relationship("DeckDB", back_populates="owner", cascade="all, delete-orphan", passive_deletes=True)
 
 
 class DeckDB(Base):

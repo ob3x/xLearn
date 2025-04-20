@@ -43,10 +43,10 @@ const StartTest = () => {
   }
 
   return (
-    <section className='py-100'>
+    <section className='py-100 px-20'>
       <div className='screen-max-width'>
-        <h1 className='text-blue-600 font-bold text-3xl'>Zestaw: {deck[0].name}</h1>
-        <p className='text-blue-500 my-10'>Kliknij w przycisk "Dobrze" jeśli odpowiedziałeś dobrze, a w przycisk "Źle" jeśli odpowiedziałeś źle</p>
+        <h1 className='text-blue-600 font-bold text-xl sm:text-3xl'>Zestaw: {deck[0].name}</h1>
+        <p className='text-blue-500 my-10 text-sm sm:text-base'>Kliknij w przycisk "Dobrze" jeśli odpowiedziałeś dobrze, a w przycisk "Źle" jeśli odpowiedziałeś źle</p>
         <Link to={`/tests`} className='flex items-center'>
           <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
           <img src={leftArrowImg} width={20} />
@@ -69,7 +69,7 @@ const StartTest = () => {
             ) : (
               <div className='mt-50'>
                 <div
-                  className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-5xl rounded-2xl transition-transform duration-300 
+                  className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-xl sm:text-5xl rounded-2xl transition-transform duration-300 
                   transform-style preserve-3d ${flipped ? 'rotate-x-180' : ''}`}
                   onClick={() => setFlipped(!flipped)}
                 >

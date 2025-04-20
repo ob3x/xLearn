@@ -30,9 +30,9 @@ const FlashCards = () => {
   }
   
   return (
-    <section className='py-100'>
+    <section className='py-100 px-20'>
       <div className='screen-max-width'>
-        <h1 className='text-blue-600 font-bold text-3xl'>Zestaw : {deck[0].name}</h1>
+        <h1 className='text-blue-600 font-bold text-xl sm:text-3xl'>Zestaw : {deck[0].name}</h1>
           <Link to={`/decks/${deckId}`} className='flex items-center mt-20'>
             <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
             <img src={leftArrowImg} width={20} />
@@ -40,7 +40,7 @@ const FlashCards = () => {
           {decks.length > 0 ? (
           <div className='mt-50'>
             <div>
-                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-5xl rounded-2xl transition-transform duration-300 
+                <div className={`relative w-full h-500 shadow-2xl bg-gradient-to-b from-blue-400 to-blue-600 font-bold text-xl sm:text-5xl rounded-2xl transition-transform duration-300 
                   transform-style preserve-3d ${flippedSecond ? 'rotate-x-180' : ''}`}
                   onClick={() => setFlippedSecond(!flippedSecond)}>
 

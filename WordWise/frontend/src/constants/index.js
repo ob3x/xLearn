@@ -56,7 +56,7 @@ export const flashCardsTest = [
 export const footerItems = [
   {
     text : "Regulamin",
-    link : "/regulamin"
+    link : "/rules"
   },
   {
     text : "Polityka prywatności",
@@ -93,10 +93,10 @@ export const navElements = [
   },
   {
     title: "Polityka prywatności",
-    link: "/panel/privace-polity"
+    link: "/private-policy"
   },
   {
     title: "Regulamin",
-    link: "/panel/rules"
+    link: "/rules"
   },
 ]

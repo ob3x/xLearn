@@ -42,14 +42,14 @@ const Panel = () => {
           <div className="flex flex-col md:flex-row md:flex-wrap items-center mt-50">
             {decks.length > 0 ? decks.map(deck => (
               <Link to={`/decks/${deck.id}`} key={deck.id}>
-                <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-450 mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+                <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-450 md:mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
                   <p className="font-bold text-2xl">{deck.name}</p>
                   <p>{deck.description}</p>
                 </div>
               </Link>
             )) : (
               <Link to="/decks-create">
-                <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-xl mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+                <div className="flex flex-col justify-center items-center bg-blue-500 py-200 w-xs h-xl md:mr-50 mb-50 rounded-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
                   <img src={plusImg} width={40}/>
                 </div> 
               </Link> )

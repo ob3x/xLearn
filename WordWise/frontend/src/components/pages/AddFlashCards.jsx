@@ -109,19 +109,19 @@ const AddFlashCards = () => {
   }
 
   return (
-    <section className='py-100'>
+    <section className='py-100 px-20'>
       <div className='screen-max-width'>
         <div className='flex justify-between'>
           <div>
-            <h1 className='text-blue-600 font-bold text-3xl'>Dodaj lub edytuj fiszki</h1>
-            <p className='text-blue-500 font-bold my-10'>Zestaw: {deck[0].name}</p>
+            <h1 className='text-blue-600 font-bold text-xl sm:text-3xl'>Dodaj lub edytuj fiszki</h1>
+            <p className='text-blue-500 font-bold my-10 text-sm sm:text-base'>Zestaw: {deck[0].name}</p>
             <Link to={`/decks/${deckId}`} className='flex items-center'>
               <button className='text-blue-600 cursor-pointer mr-5'>Powrót</button>
               <img src={leftArrowImg} width={20} />
             </Link>
           </div>
           <button
-            className='button-class second-button_hover px-90 py-20 font-bold text-3xl hover:bg-blue-shadow'
+            className='button-class second-button_hover px-40 sm:px-60 md:px-90 font-bold text-sm md:text-2xl  hover:bg-blue-shadow'
             onClick={saveChanges}
           >
             Zapisz
